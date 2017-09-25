@@ -6,6 +6,7 @@ import { directions } from './util';
 export class Game {
   constructor(config, element) {
     this.size = config.size;
+    this.configuredSpeed = config.speed;
     this.colors = config.colors;
     this.levelUp = config.levelUp;
     this.canvas = this.createGameboard(element, config.width, config.height, config.colors);
@@ -49,7 +50,12 @@ export class Game {
     this.level = 1;
     this.generateFood();
     this.snake = new Snake(this, this.size, this.colors.snake, this.speed);
+    this.renderer.reset();
     this.renderer.draw();
+  }
+
+  get speed() {
+    return this.configuredSpeed * this.level;
   }
 
   generateFood() {

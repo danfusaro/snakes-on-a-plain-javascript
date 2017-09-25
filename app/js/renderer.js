@@ -2,8 +2,13 @@ export class Renderer {
   constructor(game, fps, canvas) {
     this.game = game;
     this.fps = fps;
+    this.configuredFps = fps;
     this.canvas = canvas;
     this.context = canvas.getContext('2d');
+  }
+
+  reset() {
+    this.fps = this.configuredFps;
   }
 
   draw() {
@@ -17,7 +22,7 @@ export class Renderer {
       // Rendering thread
       setTimeout(() => {
         requestAnimationFrame(() => this.draw());
-      }, 1000 / this.fps);
+      });
     }
   }
 
