@@ -36,6 +36,7 @@ export class Game {
         Object.keys(directions)
         .map(key => directions[key])
         .find(direction =>
+          // Find matching direction based on keyCode
           direction.keyCode === event.keyCode);
       if(direction) {
         this.snake.turn(direction);
@@ -47,6 +48,7 @@ export class Game {
     }
   }
 
+  // Gmae started, reset board
   start() {
     this.gameOver = false;
     this.score = 0;
@@ -56,6 +58,7 @@ export class Game {
     this.renderer.draw();
   }
 
+  // Speed is a constant based on the inital speed and the player's level
   get speed() {
     return this.configuredSpeed * this.level;
   }
