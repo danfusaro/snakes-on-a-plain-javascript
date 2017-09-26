@@ -1,5 +1,7 @@
 # Snake, a game written in Javascript ES6 and Webpack.
 
+Hosted:  https://danfusaro.github.io/snake
+
 Run `npm install` to install dependencies.
 
 - `npm start` will start the live-reload dev server.
