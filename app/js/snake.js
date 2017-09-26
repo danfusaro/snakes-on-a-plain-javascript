@@ -22,13 +22,13 @@ export class Snake {
 
     // Food was eaten
     if(boundsInfo.food) {
+      this.game.scored();
       // How many segments need to be added based on game speed
-      let count = Math.max(Math.ceil(this.size / this.game.speed), 1);
+      let count = Math.floor(this.size / this.game.speed);
       while(count > 0) {
         this.segments.push(new Segment(boundsInfo.x, boundsInfo.y, this.size, this.color));
         count--;
       }
-      this.game.scored();
     } else {
       // If there was no growth, remove last added segment
       this.segments.shift();
@@ -110,7 +110,7 @@ export class Snake {
       for(let x = 1; x < this.segments.length; x++) {
         const s = this.segments[x];
         if(this.head.x === s.x || this.head.y === s.y) {
-          debugger;
+          // debugger;
         }
       }
     }

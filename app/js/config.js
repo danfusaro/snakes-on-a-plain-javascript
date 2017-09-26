@@ -1,6 +1,6 @@
 export const config = {
-  width: 800,
-  height: 600,
+  width: 1200,
+  height: 800,
   size: 32,
   colors: {
     snake: '#00FF00',
@@ -8,5 +8,6 @@ export const config = {
     board: ['black', 'blue']
   },
   speed: 2,
-  levelUp: 3
+  levelUp: 3,
+  font: 'Arial'
 };

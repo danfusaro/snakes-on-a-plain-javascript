@@ -10,10 +10,14 @@ export class Game {
     this.colors = config.colors;
     this.levelUp = config.levelUp;
     this.canvas = this.createGameboard(element, config.width, config.height, config.colors);
-    this.over = false;
-    this.renderer = new Renderer(this, config.fps, this.canvas);
+    this.gameOver = true;
+    this.renderer = new Renderer(this, this.canvas, config.font);
+    // Intro text
+    this.renderer.text('SNAKE!', config.width / 2, config.height / 2);
+    // TODO - real math for laying out text
+    this.renderer.text('Press Enter to Start', config.width / 2, config.height / 2 + 50, { size: '3vh' });
+    // Add global key handlers
     window.addEventListener('keydown', (event) => this.keyHandler(event));
-    this.start();
   }
 
   createGameboard(parent, width, height, colors) {
@@ -27,7 +31,7 @@ export class Game {
   }
 
   keyHandler(event) {
-    if(!this.over) {
+    if(!this.gameOver) {
       // Control the snake
       const direction =
         Object.keys(directions)
@@ -45,12 +49,11 @@ export class Game {
   }
 
   start() {
-    this.over = false;
+    this.gameOver = false;
     this.score = 0;
     this.level = 1;
     this.generateFood();
     this.snake = new Snake(this, this.size, this.colors.snake, this.speed);
-    this.renderer.reset();
     this.renderer.draw();
   }
 
@@ -68,13 +71,14 @@ export class Game {
       this.level++;
     }
     this.generateFood();
-    console.log('New score', this.score, this.renderer.fps, 'fps');
   }
 
   stop() {
-    this.over = true;
-    // Game over
-    console.log('You lose');
+    this.gameOver = true;
+    // Intro text
+    this.renderer.text('Game Over!', this.canvas.width / 2, this.canvas.height / 2);
+    // TODO - real math for laying out text
+    this.renderer.text('Press Enter to Play Again', this.canvas.width / 2, this.canvas.height / 2 + 50, { size: '3vh' });
   }
 
 }
