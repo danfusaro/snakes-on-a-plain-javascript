@@ -1,6 +1,6 @@
 export function randomCoordinate(width, height, size) {
-  const x = Math.round(Math.random() * (width - (size / 2)));
-  const y = Math.round(Math.random() * (height - (size / 2)));
+  let x = Math.max(Math.round(Math.random() * width) - (size / 2), size / 2);
+  let y = Math.max(Math.round(Math.random() * height) - (size / 2), size / 2);
   return { x, y };
 }
 

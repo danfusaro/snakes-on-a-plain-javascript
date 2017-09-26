@@ -15,8 +15,6 @@ export class Sprite {
   }
 
   draw(context) {
-    //context.fillStyle = this.color;
-    //context.fillRect(this.x, this.y, this.size, this.size);
     context.fillStyle = this.color;
     context.beginPath();
     context.moveTo(this.x - (this.size / 2), this.y - (this.size / 2));

@@ -14,7 +14,6 @@ export class Game {
     this.renderer = new Renderer(this, this.canvas, config.font);
     // Intro text
     this.renderer.text('SNAKE!', config.width / 2, config.height / 2);
-    // TODO - real math for laying out text
     this.renderer.text('Press Enter to Start', config.width / 2, config.height / 2 + 50, { size: '3vh' });
     // Add global key handlers
     window.addEventListener('keydown', (event) => this.keyHandler(event));
@@ -38,7 +37,7 @@ export class Game {
         .map(key => directions[key])
         .find(direction =>
           direction.keyCode === event.keyCode);
-      if(!!direction) {
+      if(direction) {
         this.snake.turn(direction);
       }
     } else {
