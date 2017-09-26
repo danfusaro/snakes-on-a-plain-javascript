@@ -1,4 +1,4 @@
-# Snake, a game written with Javascript ES6 and Webpack.
+# Snake, a game written in Javascript ES6 and Webpack.
 
 Run `npm install` to install dependencies.
 
