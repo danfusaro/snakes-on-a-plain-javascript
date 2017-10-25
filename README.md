@@ -1,4 +1,4 @@
-# Snake, a game written in Javascript ES6 and Webpack.
+# Snake, a game written in Javascript ES6
 
 Hosted:  https://danfusaro.github.io/snake
 
